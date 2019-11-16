@@ -5,6 +5,8 @@
 #include<stdlib.h>
 #include<string.h>
 #include <errno.h>
+#include <sys/types.h>
+ #include <sys/wait.h>
 char **strtow(char *str);
 void _execve(char **av, char *argv);
 #endif
