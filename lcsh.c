@@ -1,10 +1,12 @@
 #include"holberton.h"
 
-int main (void)
+int main (int argc, char **argv)
 {
-	char *buffer;
+	(void) argc;
+	char *buffer, **av;
 	size_t s_buffer = 1;
 	ssize_t lenght;
+	int i = 0;
 
 	printf("$ ");
 	buffer = malloc(sizeof(char) * s_buffer);
@@ -12,11 +14,12 @@ int main (void)
 		return(0);
 	while ((lenght = getline(&buffer, &s_buffer, stdin)) != -1)
 	{
-		printf("%i", lenght);
-		printf("%s$ ", buffer);
+		av = strtow(buffer);
+		for (; av[i] != '\0'; i++)
+			printf("%s", av[i]);	
+		printf("av set");
+		_execve(av, argv[0]);
 	}
-
-	printf("\n");
 	free(buffer);
 	return (lenght);
 }
