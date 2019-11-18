@@ -1,5 +1,10 @@
 #include"holberton.h"
 
+void exception (int signum)
+{ 
+    write(STDOUT_FILENO,"\n$ ",3);
+}
+
 int main (int argc, char **argv)
 {
 	(void) argc;
@@ -11,10 +16,11 @@ int main (int argc, char **argv)
 	int num;
 
 	printf("$ ");
+	signal(SIGINT, exception);
 	buffer = malloc(sizeof(char) * s_buffer);
 	if (!buffer)
 		return(0);
-	while ((lenght = getline(&buffer, &s_buffer, stdout)) != -1)
+	while ((lenght = getline(&buffer, &s_buffer, stdin)) != -1)
 	{
 		child_pid = fork();
 		if (child_pid == -1)
