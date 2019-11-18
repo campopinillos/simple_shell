@@ -6,7 +6,7 @@ ssize_t _prompt(char **argv)
 	size_t s_buffer = 1;
 	ssize_t lenght;
  	pid_t child_pid;
- 	int num;
+ 	int num, i = 0;
 
  	printf("$ ");
  	buffer = malloc(sizeof(char) * s_buffer);
@@ -14,7 +14,7 @@ ssize_t _prompt(char **argv)
  		return(0);
  	while ((lenght = getline(&buffer, &s_buffer, stdin)) != -1)
  	{
- 		child_pid = fork();
+		child_pid = fork();
  		if (child_pid == -1)
 		{
         	perror("Error:");
@@ -27,8 +27,12 @@ ssize_t _prompt(char **argv)
  		{
  			wait(&num);
  			printf("$ ");
- 		}		
+			while (av[i])
+				free(av[i++]);
+ 		}
+		free(av);	
  	}
+	
  	free(buffer);
 	return (lenght);
 }
