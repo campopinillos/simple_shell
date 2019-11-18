@@ -12,10 +12,9 @@ ssize_t _prompt(char **argv)
  	buffer = malloc(sizeof(char) * s_buffer);
  	if (!buffer)
  		return(0);
- 	while (1)
+ 	while ((lenght = getline(&buffer, &s_buffer, stdin)) != -1)
  	{
-		lenght = getline(&buffer, &s_buffer, stdin);
-		child_pid = fork();
+ 		child_pid = fork();
  		if (child_pid == -1)
 		{
         	perror("Error:");
