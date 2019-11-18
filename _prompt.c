@@ -10,7 +10,7 @@ ssize_t _prompt(char **argv)
 	
 	printf("$ ");
 
-	signal(SIGINT, _exception);
+	signal(SIGINT, _signalc);
 	buffer = malloc(sizeof(char) * s_buffer);
 	if (!buffer)
 		return(0);
@@ -22,7 +22,7 @@ ssize_t _prompt(char **argv)
         	perror("Error:");
         	return (1);
 		}
-		av = strtow(buffer);
+		av = _strtok(buffer);
 		free(buffer);
 		if (child_pid == 0)
 			_execve(av, argv[0]), free(av);
