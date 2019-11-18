@@ -2,7 +2,8 @@
 
 int main(int argc, char **argv)
 {
-	if (argc == 1)
-		_prompt(argv);
+	(void) argc;
+	signal(SIGINT, _signalc);
+	_prompt(argv);
 	return (0);
 }
