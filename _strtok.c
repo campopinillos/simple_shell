@@ -25,20 +25,16 @@ char **strtow(char *str)
 
 	if (str == NULL || str[0] == '\0')
 		return (NULL);
-	for (; str[i] != '\0'; i++)
-	{
-		if (str[i] != ' ' && str[i + 1] == ' ')
-			cont = cont + 1;
-		if (str[i] != ' ' && str[i + 1] == '\0')
-			cont = cont + 1;
-	}
+	for (; str[i] != '\n'; i++)
+		cont++;
+    	str[i] = '\0';
 	p = malloc(sizeof(char *) * (cont + 1));
 	if (p == NULL)
 		return (NULL);
 	for (i = 0; str[i] != '\0' && cp < cont; i++)
 	{
 		for (; str[i] != ' ' && str[i] != '\0'; i++)
-			cl = cl + 1;
+			cl++;
 		if (cl > 0)
 		{
 			p[cp] = malloc(sizeof(char) * (cl + 1));

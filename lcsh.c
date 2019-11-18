@@ -10,11 +10,11 @@ int main (int argc, char **argv)
 	pid_t child_pid;
 	int num;
 
-	printf(";) ");
+	printf("$ ");
 	buffer = malloc(sizeof(char) * s_buffer);
 	if (!buffer)
 		return(0);
-	while ((lenght = getline(&buffer, &s_buffer, stdin)) != -1)
+	while ((lenght = getline(&buffer, &s_buffer, stdout)) != -1)
 	{
 		child_pid = fork();
 		if (child_pid == -1)
@@ -23,12 +23,13 @@ int main (int argc, char **argv)
         	return (1);
 		}
 		av = strtow(buffer);
+		free(buffer);
 		if (child_pid == 0)
-			_execve(av, argv[0]);
+			_execve(av, argv[0]), free(av);
 		else
 		{
 			wait(&num);
-			printf(";) ");
+			printf("$ ");
 		}		
 	}
 	free(buffer);
