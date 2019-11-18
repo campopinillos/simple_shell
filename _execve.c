@@ -4,7 +4,6 @@ void _execve(char **av, char *argv)
 {
 	int r;
 	pid_t my_pid = 0;
-	extern char **environ;
 
 	r = execve(av[0], av, NULL);
 

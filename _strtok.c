@@ -1,24 +1,11 @@
-#include<stdlib.h>
-/**
- *fill - fill the array
- *@str: string from
- *@p: string to
- *Return: void;
- */
-void fill(char *str, char *p)
-{
-	int i = 0;
-
-	for (; str[i] != ' ' && str[i] != '\0'; i++)
-		p[i] = str[i];
-	p[i] = '\0';
-}
+#include "holberton.h"
+void fill(char *str, char *p);
 /**
  *strtow - cut a string
  *@str: string from
  *Return: p;
  */
-char **strtow(char *str)
+char **_strtok(char *str)
 {
 	char **p;
 	int i = 0, cont = 0, cl = 0, cp = 0;
@@ -50,4 +37,19 @@ char **strtow(char *str)
 	else
 		p[cp] = NULL;
 	return (p);
+}
+
+/**
+ *fill - fill the array
+ *@str: string from
+ *@p: string to
+ *Return: void;
+ */
+void fill(char *str, char *p)
+{
+	int i = 0;
+
+	for (; str[i] != ' ' && str[i] != '\0'; i++)
+		p[i] = str[i];
+	p[i] = '\0';
 }

@@ -1,22 +1,16 @@
-#include"holberton.h"
+#include "holberton.h"
 
-void exception (int signum)
-{ 
-    write(STDOUT_FILENO,"\n$ ",3);
-}
-
-int main (int argc, char **argv)
+ssize_t _prompt(char **argv)
 {
-	(void) argc;
 	char *buffer, **av;
-	size_t s_buffer = 1;
 	ssize_t lenght;
-	int i = 0;
+	size_t s_buffer = 1;
 	pid_t child_pid;
 	int num;
-
+	
 	printf("$ ");
-	signal(SIGINT, exception);
+
+	signal(SIGINT, _exception);
 	buffer = malloc(sizeof(char) * s_buffer);
 	if (!buffer)
 		return(0);
