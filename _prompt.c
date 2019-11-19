@@ -12,7 +12,7 @@ ssize_t _prompt(char **argv)
 	size_t s_buffer = 1;
 	ssize_t lenght;
 	pid_t child_pid;
-	int num, i = 0;
+	int num, i = 0, n = 0;
 
 	printf("$ ");
 	buffer = malloc(sizeof(char) * s_buffer);
@@ -24,30 +24,39 @@ ssize_t _prompt(char **argv)
 		{
 			free(buffer);
 			return (-1); }
-		child_pid = fork();
-		if (child_pid == -1)
-		{
-			perror("Error:");
-			free(buffer);
-			return (1); }
 		av = _strtok(buffer);
-		if (child_pid == 0)
+		if(open(av[0], O_RDONLY) != -1)
 		{
-			if ((_execve(av, argv[0])) == -1)
+			child_pid = fork();
+			if (child_pid == -1)
 			{
+				perror("Error:");
+				free(buffer);
+				return (1); }
+			
+			if (child_pid == 0)
+			{
+				if ((_execve(av, argv[0])) == -1)
+				{
+					i = 0;
+					while (av[i])
+						free(av[i++]);
+					free(av);
+				}
+			}
+			else
+			{
+				wait(&num);
+				printf("$ ");
 				i = 0;
 				while (av[i])
 					free(av[i++]);
-				free(av); }
+				free(av);
+			}
 		}
 		else
-		{
-			wait(&num);
-			printf("$ ");
-			i = 0;
-			while (av[i])
-				free(av[i++]);
-			free(av); } }
+			printf("%s: No such file or directory\n$ ", argv);		
+	}
 	free(buffer);
 	return (lenght);
 }

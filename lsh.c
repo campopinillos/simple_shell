@@ -16,6 +16,6 @@ int main(int argc, char **argv)
 	signal(SIGINT, _signalc);
 	a = _prompt(argv);
 	if (a == -1)
-		kill(0, SIGTERM);
+		exit(0);
 	return (0);
 }
