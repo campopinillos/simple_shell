@@ -9,6 +9,8 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <signal.h>
+#include <sys/stat.h>
+#include <fcntl.h>
 
 void _signalc(int sig_num);
 ssize_t _prompt(char **argv);
