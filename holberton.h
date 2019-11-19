@@ -16,6 +16,6 @@ void _signalc(int sig_num);
 ssize_t _prompt(char **argv);
 char **_strtok(char *str);
 void fill(char *str, char *p);
-int _execve(char **av, char *argv);
+int _execve(char **av);
 
 #endif
