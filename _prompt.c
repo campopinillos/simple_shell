@@ -2,7 +2,7 @@
 
 ssize_t _prompt(char **argv)
 {
-	char *buffer, **av, buff[1024];
+	char *buffer, **av;
 	size_t s_buffer = 1;
 	ssize_t lenght;
  	pid_t child_pid;
@@ -29,15 +29,20 @@ ssize_t _prompt(char **argv)
  		av = _strtok(buffer);
 		free(buffer);
 		if (child_pid == 0)
- 			_execve(av, argv[0]);
- 		else
+		{
+			if((_execve(av, argv[0])) == -1)
+			{
+				i = 0;
+				while(av[i])
+					free(av[i++]);
+				free(av);
+			}
+		}
+		else
  		{
  			wait(&num);
  			printf("$ ");
-			while (av[i])
-				free(av[i++]);
- 		}
-		free(av);	
- 	}
+		}
+	}
 	return (lenght);
 }

@@ -2,6 +2,7 @@
 
 int main(int argc, char **argv)
 {
+	(void) argc;
 	signal(SIGINT, _signalc);
 	int a = _prompt(argv);
 	if(a == -1)
