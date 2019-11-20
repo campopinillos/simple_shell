@@ -11,7 +11,7 @@ ssize_t _prompt(char **argv, int *flag)
 	char *buffer, **av;
 	size_t s_buffer = 1;
 	ssize_t lenght;
-	int cont = 1;
+	int cont = 1, e = 0;
 
 	if (isatty(STDIN_FILENO))
 		printf("$ "), *flag = 0;
@@ -30,7 +30,9 @@ ssize_t _prompt(char **argv, int *flag)
 			printf("$ ");
 			continue;
 		}
-		if (open(av[0], O_RDONLY) != -1)
+		if (!av[1])
+			e = _exitt(av[0]);
+		if (open(av[0], O_RDONLY) != -1 && e)
 			_execve(av), cont++;
 		else
 		{
@@ -41,5 +43,5 @@ ssize_t _prompt(char **argv, int *flag)
 		}
 	}
 	free(buffer);
-	return (lenght);
+	return (-1);
 }

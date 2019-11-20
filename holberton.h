@@ -17,5 +17,6 @@ ssize_t _prompt(char **argv, int *flag);
 char **_strtok(char *str);
 void fill(char *str, char *p);
 int _execve(char **av);
+int _exitt(char *av);
 
 #endif
