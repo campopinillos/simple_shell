@@ -1,4 +1,4 @@
-![Holberton school logo]|  https://secure.meetupstatic.com/photos/event/b/c/5/6/highres_475548214.jpeg)
+![Holberton school logo](https://secure.meetupstatic.com/photos/event/b/c/5/6/highres_475548214.jpeg)
 # Simple Shell Project
 
 This is collaborative project made by Luz Adriana Ariza and Campo Elias Pinillos, students of Software Engineering at Holberton School. This repository contains the files for Holberton's **simple_shell project**. It consists of developing and making our own UNIX command interpreter (Shell).
