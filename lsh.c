@@ -10,12 +10,12 @@
  */
 int main(int argc, char **argv)
 {
-	int a;
-
 	(void) argc;
 	signal(SIGINT, _signalc);
-	a = _prompt(argv);
-	if (a == -1)
+	if (_prompt(argv) == -1)
+	{
+		printf("\n");
 		exit(0);
+	}
 	return (0);
 }

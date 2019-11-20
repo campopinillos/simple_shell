@@ -11,12 +11,14 @@ ssize_t _prompt(char **argv)
 	char *buffer, **av;
 	size_t s_buffer = 1;
 	ssize_t lenght;
-	int i = 0, n = 0, cont = 1;
+	int cont = 1;
 
 	printf("$ ");
 	buffer = malloc(sizeof(char) * s_buffer);
 	if (!buffer)
 		return (0);
+	if (isatty(1) == 0)
+		printf("hola mundo");
 	while ((lenght = getline(&buffer, &s_buffer, stdin)) != -1)
 	{
 		if (lenght == EOF)
@@ -24,11 +26,11 @@ ssize_t _prompt(char **argv)
 			free(buffer);
 			return (-1); }
 		av = _strtok(buffer);
-		if(open(av[0], O_RDONLY) != -1)
-			_execve(av);
+		if (open(av[0], O_RDONLY) != -1)
+			_execve(av), cont++;
 		else
 		{
-			printf("%s %i: No such file or directory\n$ ", argv[0], cont);
+			printf("%s: %i: %s: not found\n$ ", argv[0], cont, av[0]);
 			cont++;
 		}
 	}
