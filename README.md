@@ -12,13 +12,13 @@ These are the files with the custom funtions and system calls, each one contains
 
 |   ***File***    |  **Decription**                     |
 |---------------|---------------------------------------|
-|  `holberton.h`	|  Header file with the prototypes	|
-|  `lsh.c.c` |  Main File functions to execute |
-|  `_prompt.c` |  Prompt and getline file	|
-|  `_execve.c`	|  Execute function |
-|  `_strtok.c`  | Custom strtok function  |
-|  `_signal.c`  | Ctrl + C deal function	|
-|  `path.c`  | Functions for handling the PATH  |
+|  [`holberton.h`](./holberton.h)	|  Header file with the prototypes	|
+|  [`lsh.c`](./lsh.c) |  Main File functions to execute |
+|  [`_prompt.c`](./_prompt.c) |  Prompt and getline file	|
+|  [`_execve.c`](./_execve.c)	|  Execute function |
+|  [`_strtok.c`](./_strtok.c) | Custom strtok function  |
+|  [`_signal.c`](./_signal.c)  | Ctrl + C deal function	|
+|  [`path.c`](./path.c)  | Functions for handling the PATH  |
 
 ### List of allowed functions and system calls:
 
