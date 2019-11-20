@@ -13,12 +13,11 @@ ssize_t _prompt(char **argv)
 	ssize_t lenght;
 	int cont = 1;
 
-	printf("$ ");
+	if (isatty(STDIN_FILENO))
+		printf("$ ");
 	buffer = malloc(sizeof(char) * s_buffer);
 	if (!buffer)
 		return (0);
-	if (isatty(1) == 0)
-		printf("hola mundo");
 	while ((lenght = getline(&buffer, &s_buffer, stdin)) != -1)
 	{
 		if (lenght == EOF)

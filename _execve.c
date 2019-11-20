@@ -26,7 +26,8 @@ int _execve(char **av)
 	else
 	{
 		wait(&num);
-		printf("$ ");
+		if (isatty(STDIN_FILENO))
+			printf("$ ");
 	}
 	return (1);
 }
