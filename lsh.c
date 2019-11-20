@@ -11,10 +11,17 @@
  */
 int main(int argc, char **argv, char **environment)
 {
+	int flag = 1;
+	int *p = &flag;
+
 	(void) argc;
 	(void) environment;
 	signal(SIGINT, _signalc);
-	if (_prompt(argv) == -1)
+	if (_prompt(argv, p) == -1)
+	{
+		if (flag == 0)
+			printf("\n");
 		exit(0);
+	}
 	return (0);
 }

@@ -22,7 +22,7 @@ char **_strtok(char *str)
 		return (NULL);
 	for (i = 0; str[i] != '\0' && cp < cont; i++)
 	{
-		for (; str[i] != ' ' && str[i] != '\0'; i++)
+		for (; str[i] != ' ' && str[i] != '\0' && str[i] != 9; i++)
 			cl++;
 		if (cl > 0)
 		{
