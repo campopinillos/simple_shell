@@ -29,7 +29,9 @@ ssize_t _prompt(char **argv)
 			_execve(av), cont++;
 		else
 		{
-			printf("%s: %i: %s: not found\n$ ", argv[0], cont, av[0]);
+			printf("%s: %i: %s: not found\n", argv[0], cont, av[0]);
+			if (isatty(STDIN_FILENO))
+				printf("$ ");
 			cont++;
 		}
 	}
