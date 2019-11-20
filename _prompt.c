@@ -25,7 +25,7 @@ ssize_t _prompt(char **argv, int *flag)
 			free(buffer);
 			return (-1); }
 		av = _strtok(buffer);
-		if (av[0] ==  NULL)
+		if (!av || av[0] == NULL)
 		{
 			printf("$ ");
 			continue;
