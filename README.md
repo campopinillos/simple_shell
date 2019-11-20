@@ -5,13 +5,26 @@ This is collaborative project made by Luz Adriana Ariza and Campo Elias Pinillos
 
  It's a recreation of the <kbd>sh</kbd> shell a command line interpreter, this program has the exact same output as <kbd>sh</kbd> <kbd>(/bin/sh)</kbd> as well as the exact same error output.
 
-# Pre-requisites
 
-This files only contains this following allowed funtion and system calls:
+## Repo Contents:
+
+These are the files with the custom funtions and system calls, each one contains a brief description:
+
+|   ***File***    |  **Decription**                     |
+|---------------|---------------------------------------|
+|  `holberton.h`	|  Header file with the prototypes	|
+|  `lsh.c.c` |  Main File functions to execute |
+|  `_prompt.c` |  Prompt and getline file	|
+|  `_execve.c`	|  Execute function |
+|  `_strtok.c`  | Custom strtok function  |
+|  `_signal.c`  | Ctrl + C deal function	|
+|  `path.c`  | Functions for handling the PATH  |
 
 ### List of allowed functions and system calls:
 
-| System call | Man page | System call | Man page |
+This files only contains the following allowed funtion and system calls:
+
+| ***System call*** | ***Man page*** | ***System call*** | ***Man page*** |
 | ------------- | ------------- | ------------- | ------------- |
 | access  | man 2 access  | open |  man 2 open |
 | chdir  | man 2 chdir | opendir |  man 3 opendir |
@@ -30,19 +43,7 @@ This files only contains this following allowed funtion and system calls:
 | malloc | man 3 malloc | write |  man 2 write |
 
 
-### Repo Contents:
-
-|   ***File***    |  **Decription**                       |
-|---------------|---------------------------------------|
-|  `holberton.h`	|  Header file with the prototypes	|
-|  `lsh.c.c` |  Main File functions to execute |
-|  `_prompt.c` |  Prompt and getline file	|
-|  `_execve.c`	|  Execute function |
-|  `_strtok.c`  | Custom strtok function  |
-|  `_signal.c`  | Ctrl + C deal function	|
-|  `path.c`  | Functions for handling the PATH  |
-
-### Quick Start
+## Quick Start
 
 1. Clone repo
 ```
@@ -57,7 +58,7 @@ cd simple_shell/
 gcc -Wall -Werror -Wextra -pedantic *.c -o lsh
 ```
 
-### Interactive and Non-Interactive Mode
+### Interactive Mode
 In interactive mode input is accepted from character input, as follow:
 ```
 $ ./lsh
@@ -75,6 +76,7 @@ total 52
 -rw-r--r-- 1 vagrant vagrant     0 Nov 20 01:31 man_1_simple_shell
 ```
 
+### Non-Interactive Mode
 In non-interactive mode, the shell is run from commands being piped in. The subshell
 is only opened as the command is carried out and closes at the completion of the command.
 
