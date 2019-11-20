@@ -1,18 +1,33 @@
 #include "holberton.h"
-
-void _execve(char **av, char *argv)
+/**
+ * _execve - Call execve
+ * @av: Double char pointer
+ * Description: Call execve
+ * Return: 1 if succes and -1 if fails
+ */
+int _execve(char **av)
 {
-	int r;
-	pid_t my_pid = 0;
+	pid_t child_pid = 0;
+	int num, i = 0;
 
-	r = execve(av[0], av, NULL);
-
-	if (getpid())
-		my_pid++;
-	if(r == -1)
+	child_pid = fork();
+	if (child_pid == -1)
 	{
-		printf("%s %u: No such file or directory\n$ ", argv, my_pid);
-		return;
+		perror("Error:");
+		return (-1);
 	}
-	return;
+	if (child_pid == 0)
+	{
+		execve(av[0], av, NULL);
+		while (av[i])
+			free(av[i++]);
+		free(av);
+	}
+	else
+	{
+		wait(&num);
+		if (isatty(STDIN_FILENO))
+			printf("$ ");
+	}
+	return (1);
 }

@@ -1,9 +1,11 @@
 #include "holberton.h"
 void fill(char *str, char *p);
 /**
- *strtow - cut a string
- *@str: string from
- *Return: p;
+ * _strtok - Cut a string by words
+ * @str: string from
+ *
+ * Description: Cut a string by words
+ * Return: A double char pointer p
  */
 char **_strtok(char *str)
 {
@@ -14,13 +16,13 @@ char **_strtok(char *str)
 		return (NULL);
 	for (; str[i] != '\n'; i++)
 		cont++;
-    	str[i] = '\0';
+	str[i] = '\0';
 	p = malloc(sizeof(char *) * (cont + 1));
 	if (p == NULL)
 		return (NULL);
 	for (i = 0; str[i] != '\0' && cp < cont; i++)
 	{
-		for (; str[i] != ' ' && str[i] != '\0'; i++)
+		for (; str[i] != ' ' && str[i] != '\0' && str[i] != 9; i++)
 			cl++;
 		if (cl > 0)
 		{
@@ -40,10 +42,12 @@ char **_strtok(char *str)
 }
 
 /**
- *fill - fill the array
- *@str: string from
- *@p: string to
- *Return: void;
+ * fill - Fill the string
+ * @str: String from
+ * @p: String to
+ *
+ * Description: Cut a string by words
+ * Return: Void
  */
 void fill(char *str, char *p)
 {

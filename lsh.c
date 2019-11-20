@@ -1,9 +1,27 @@
 #include "holberton.h"
-
-int main(int argc, char **argv)
+/**
+ * main - Receive the input commands
+ * @argc: Integer to count inputs
+ * @argv: Double char pointer
+ * @environment: Double char pointer
+ *
+ * Description: Receive the input commands
+ * and pass them to executes orders
+ * Return: 0 if success
+ */
+int main(int argc, char **argv, char **environment)
 {
+	int flag = 1;
+	int *p = &flag;
+
 	(void) argc;
+	(void) environment;
 	signal(SIGINT, _signalc);
-	_prompt(argv);
+	if (_prompt(argv, p) == -1)
+	{
+		if (flag == 0)
+			printf("\n");
+		exit(0);
+	}
 	return (0);
 }
