@@ -11,7 +11,7 @@
  */
 int main(int argc, char **argv, char **env)
 {
-ls	int flag = 1;
+	int flag = 1;
 	int *p = &flag;
 
 	(void) argc;
