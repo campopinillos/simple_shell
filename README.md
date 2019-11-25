@@ -32,9 +32,9 @@ This files only contains the following allowed funtion and system calls:
 | closedir  | man 3 closedir  | read |  man 2 read |
 | execve  | man 2 execve  | readdir |  man 3 readdir |
 | exit  | man 3 exit  | signal |  man 2 signal |
-| _exit  | man 2 _exit  | stat |  __xstat) |  man 2 stat |
-| fflush  | man 3 fflush | lstat |  __lxstat) |  man 2 lstat |
-| fork  | man 2 fork  | fstat |  __fxstat) |  man 2 fstat |
+| _exit  | man 2 _exit  | stat  |  man 2 stat |
+| fflush  | man 3 fflush | lstat |  man 2 lstat |
+| fork  | man 2 fork  | fstat |  man 2 fstat |
 | free  | man 3 free  | strtok |  man 3 strtok |
 | getcwd  | man 3 getcwd | wait |  man 2 wait |
 | getline  | man 3 getline | waitpid |  man 2 waitpid |
@@ -61,7 +61,7 @@ gcc -Wall -Werror -Wextra -pedantic *.c -o lsh
 ### Interactive Mode
 In interactive mode input is accepted from character input, as follow:
 ```
-$ ./lsh
+> ./lsh
 $ /bin/ls -l
 total 52
 -rw-r--r-- 1 vagrant vagrant   168 Nov 20 01:50 AUTHORS
@@ -98,24 +98,23 @@ total 52
 ### Man page
 
 For further information please refer to the man page - accessed in terminal with:
-```
+```c
 > man ./man_1_simple_shell
 ```
 
 ### Examples
 
 Some other examples to execute commands in the ./lsh interactive mode:
-```
+```c
 ~/simple_shel > ./lsh
 ```
 **ls**:
-
-```
+```c
 $ ls
 AUTHORS    _prompt.c  a.out	   man_1_simple_shell README.md  _signal.c  holberton.h _execve.c  _strtok.c  lsh.c
 ```
 **pwd**:
-```
+```c
 $ pwd
 /home/vagrant/simple_shell
 ```

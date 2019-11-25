@@ -34,8 +34,8 @@ char **_strtok(char *str)
 		}
 		cl = 0;
 	}
-	if (cont == 0)
-		p = NULL;
+	if (cp == 0)
+		free (p), p = NULL;
 	else
 		p[cp] = NULL;
 	return (p);

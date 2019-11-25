@@ -19,9 +19,6 @@ int _execve(char **av)
 	if (child_pid == 0)
 	{
 		execve(av[0], av, NULL);
-		while (av[i])
-			free(av[i++]);
-		free(av);
 	}
 	else
 	{

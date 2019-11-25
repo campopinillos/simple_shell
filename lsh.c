@@ -9,7 +9,7 @@
  * and pass them to executes orders
  * Return: 0 if success
  */
-int main(int argc, char **argv, char **environment)
+int main(int argc, char **argv, char **env)
 {
 	int flag = 1;
 	int *p = &flag;
@@ -17,7 +17,7 @@ int main(int argc, char **argv, char **environment)
 	(void) argc;
 	(void) environment;
 	signal(SIGINT, _signalc);
-	if (_prompt(argv, p) == -1)
+	if (_prompt(argv, p, env) == -1)
 	{
 		if (flag == 0)
 			printf("\n");
