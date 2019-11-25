@@ -109,7 +109,6 @@ Some other examples to execute commands in the ./lsh interactive mode:
 ~/simple_shel > ./lsh
 ```
 **ls**:
-
 ```c
 $ ls
 AUTHORS    _prompt.c  a.out	   man_1_simple_shell README.md  _signal.c  holberton.h _execve.c  _strtok.c  lsh.c

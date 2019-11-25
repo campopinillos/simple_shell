@@ -15,6 +15,7 @@ int main(int argc, char **argv, char **env)
 	int *p = &flag;
 
 	(void) argc;
+	(void) environment;
 	signal(SIGINT, _signalc);
 	if (_prompt(argv, p, env) == -1)
 	{

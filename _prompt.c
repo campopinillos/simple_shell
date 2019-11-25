@@ -6,6 +6,7 @@
  * Description: Executes orders
  * Return: 1 if succes and -1 if fails
  */
+
 ssize_t _prompt(char **argv, int *flag, char **env)
 {
 	char *buffer, **av, *av_0;
@@ -20,7 +21,6 @@ ssize_t _prompt(char **argv, int *flag, char **env)
 		return (0);
 	while ((lenght = getline(&buffer, &s_buffer, stdin)) != -1)
 	{
-		p_find = 0, flag_1 = 0;
 		if (lenght == EOF)
 		{
 			free(buffer);

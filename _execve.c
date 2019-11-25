@@ -26,8 +26,5 @@ int _execve(char **av)
 		if (isatty(STDIN_FILENO))
 			printf("$ ");
 	}
-	while (av[i])
-		free(av[i++]);
-	free(av);
 	return (1);
 }
