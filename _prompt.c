@@ -14,7 +14,7 @@ ssize_t _prompt(char **argv, int *flag, char **env)
 	int cont = 1, i = 0, j = 0, l_av = 0, flag_1 = 0, p_find = 0;
 
 	if (isatty(STDIN_FILENO))
-		printf("$ "), *flag = 0;
+		write(STDOUT_FILENO, "$ ", 2), *flag = 0;
 	buffer = malloc(sizeof(char) * s_buffer);
 	if (!buffer)
 		return (0);
@@ -28,10 +28,11 @@ ssize_t _prompt(char **argv, int *flag, char **env)
 		av = _strtok(buffer);
 		if (!av)
 		{
-			printf("$ ");
+			write(STDOUT_FILENO, "$ ", 2);
 			continue;
 		}
 		_exitt(av[0]);
+		_print_env(av[0], env);
 		if (access(av[0], X_OK) == 0)
 			_execve(av), cont++;
 		else if (av)
@@ -56,7 +57,7 @@ ssize_t _prompt(char **argv, int *flag, char **env)
 				free(av[i++]);
 			free(av);
 			if (isatty(STDIN_FILENO))
-				printf("$ ");
+				write(STDOUT_FILENO, "$ ", 2);
 		}
 	}
 	free(buffer);
