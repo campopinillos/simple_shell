@@ -36,12 +36,15 @@ ssize_t _prompt(char **argv, int *flag, char **env)
 			_execve(av), cont++;
 		else if (av)
 		{
-			av_0 = _getav0(&l_av, av);
+			while (av[0][i] != '\0')
+				i++;
+			av_0 = malloc(sizeof(char) * (i + 1));
+			_getav0(&l_av, av, av_0);
 			j = 0;
 			while(env[j] && access(av[0], X_OK) != 0 && p_find == 0)
 				_path(av, env[j++], av_0, l_av, &p_find);
 			if (access(av[0], X_OK) == 0)
-				_execve(av), cont++, flag_1 = 1; 
+				_execve(av), cont++, flag_1 = 1, free(av_0); 
 		}
 		if(flag_1 == 0 && p_find)
 		{

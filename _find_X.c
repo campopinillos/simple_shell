@@ -1,5 +1,4 @@
 #include"holberton.h"
-
 int _find_X(int c_path, char *env, char *av_0, int l_av, int start, char **path)
 {
 	int m = 0, st = 0, l_p = 0, j = 0, i = 0;
