@@ -53,7 +53,7 @@ void fill(char *str, char *p)
 {
 	int i = 0;
 
-	for (; str[i] != ' ' && str[i] != '\0'; i++)
+	for (; str[i] != ' ' && str[i] != '\0' && str[i] != 9; i++)
 		p[i] = str[i];
 	p[i] = '\0';
 }
