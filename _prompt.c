@@ -24,8 +24,7 @@ ssize_t _prompt(char **argv, int *flag, char **env)
 	while ((lenght = getline(&buffer, &s_buffer, stdin)) != -1)
 	{	p_find = 0, flag_1 = 0;
 		if (lenght == EOF)
-		{
-			free(buffer);
+		{	free(buffer);
 			return (-1); }
 		_exitt(buffer);
 		av = _strtok(buffer), d = opendir(av[0]);
