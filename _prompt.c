@@ -29,10 +29,17 @@ ssize_t _prompt(char **argv, int *flag, char **env)
 		_exitt(buffer);
 		av = _strtok(buffer);
 		if (av)
+		{
 			if (_ifdir(argv, av, &cont) == 1)
 				continue;
+			else if (_ifdir(argv, av, &cont) == -1)
+			{	free(buffer), _free(av);
+				exit(127);
+			}
+		}
 		if (!av)
-		{	if (isatty(STDIN_FILENO))
+		{
+			if (isatty(STDIN_FILENO))
 				write(STDOUT_FILENO, "$ ", 2);
 			continue; }
 		_print_env(av[0], env);
@@ -46,8 +53,13 @@ ssize_t _prompt(char **argv, int *flag, char **env)
 			if (access(av[0], X_OK) == 0)
 				_execve(av), cont++, flag_1 = 1, free(av_0); }
 		if (flag_1 == 0 && p_find)
-		{	_print_error(argv[0], cont, av[0]), cont++, free(av_0), _free(av);
+		{	_print_error(argv[0], cont, av[0]), cont++;
 			if (isatty(STDIN_FILENO))
-				write(STDOUT_FILENO, "$ ", 2); } }
+				write(STDOUT_FILENO, "$ ", 2), free(av_0), _free(av);
+			else
+			{
+				free(buffer), free(av_0), _free(av);
+				exit(127);
+			} } }
 	free(buffer);
 	return (-1); }
