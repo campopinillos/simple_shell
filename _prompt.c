@@ -10,8 +10,7 @@
  */
 
 ssize_t _prompt(char **argv, int *flag, char **env)
-{
-	int cont = 1, i = 0, j = 0, l_av = 0, flag_1 = 0, p_find = 0;
+{	int cont = 1, flag_1 = 0, p_find = 0;
 	char *buffer, **av, *av_0;
 	size_t s_buffer = 1;
 	ssize_t lenght;
@@ -33,10 +32,7 @@ ssize_t _prompt(char **argv, int *flag, char **env)
 			if (_ifdir(argv, av, &cont) == 1)
 				continue;
 			else if (_ifdir(argv, av, &cont) == -1)
-			{	free(buffer), _free(av);
-				exit(127);
-			}
-		}
+				free(buffer), _free(av), exit(127); }
 		if (!av)
 		{
 			if (isatty(STDIN_FILENO))
@@ -46,20 +42,12 @@ ssize_t _prompt(char **argv, int *flag, char **env)
 		if (access(av[0], X_OK) == 0 && !opendir(av[0]))
 			_execve(av), cont++;
 		else if (av)
-		{	i = _strlen(av[0]), av_0 = malloc(sizeof(char) * (i + 1));
-			_getav0(&l_av, av, av_0);
-			for (j = 0; env[j] && access(av[0], X_OK) != 0 && p_find == 0; j++)
-				_path(av, env[j], av_0, l_av, &p_find);
-			if (access(av[0], X_OK) == 0)
-				_execve(av), cont++, flag_1 = 1, free(av_0); }
+			av_0 = _Xpath(av, &p_find, env, &cont, &flag_1);
 		if (flag_1 == 0 && p_find)
 		{	_print_error(argv[0], cont, av[0]), cont++;
 			if (isatty(STDIN_FILENO))
 				write(STDOUT_FILENO, "$ ", 2), free(av_0), _free(av);
 			else
-			{
-				free(buffer), free(av_0), _free(av);
-				exit(127);
-			} } }
+				free(buffer), free(av_0), _free(av), exit(127);	} }
 	free(buffer);
 	return (-1); }
