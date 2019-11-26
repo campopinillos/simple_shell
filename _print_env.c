@@ -1,8 +1,9 @@
 #include "holberton.h"
 /**
- * print_env - Prints environment variables
+ * _print_env - Prints environment variables
+ * @av: Received command
  * @env: all envment variables for the user
- * 
+ *
  * Description: Prints all environment variables
  * Return: 1 if success
  */
