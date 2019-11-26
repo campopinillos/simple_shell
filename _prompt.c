@@ -32,7 +32,8 @@ ssize_t _prompt(char **argv, int *flag, char **env)
 			if (_ifdir(argv, av, &cont) == 1)
 				continue;
 		if (!av)
-		{	write(STDOUT_FILENO, "$ ", 2);
+		{	if (isatty(STDIN_FILENO))
+				write(STDOUT_FILENO, "$ ", 2);
 			continue; }
 		_print_env(av[0], env);
 		if (access(av[0], X_OK) == 0 && !opendir(av[0]))
