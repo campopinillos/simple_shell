@@ -35,7 +35,7 @@ char **_strtok(char *str)
 		cl = 0;
 	}
 	if (cp == 0)
-		free (p), p = NULL;
+		free(p), p = NULL;
 	else
 		p[cp] = NULL;
 	return (p);

@@ -1,8 +1,10 @@
 #include "holberton.h"
 /**
- *_exitt - handle exit command
- *@av: string
- *Return: void
+ * _exitt - Handle exit command
+ * @av: string
+ *
+ * Description: Handle exit command
+ * Return: Integer
  */
 int _exitt(char *av)
 {
@@ -12,6 +14,9 @@ int _exitt(char *av)
 	for (; av[i] > 96 && av[i] < 123 && av[i] == s[i]; i++)
 		;
 	if (i == 4)
+	{
+		free(av);
 		exit(0);
+	}
 	return (1);
 }

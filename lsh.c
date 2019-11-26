@@ -3,7 +3,7 @@
  * main - Receive the input commands
  * @argc: Integer to count inputs
  * @argv: Double char pointer
- * @environment: Double char pointer
+ * @env: Double char pointer
  *
  * Description: Receive the input commands
  * and pass them to executes orders
@@ -15,7 +15,6 @@ int main(int argc, char **argv, char **env)
 	int *p = &flag;
 
 	(void) argc;
-	(void) environment;
 	signal(SIGINT, _signalc);
 	if (_prompt(argv, p, env) == -1)
 	{
