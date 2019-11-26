@@ -1,9 +1,10 @@
 #include "holberton.h"
 /**
- * print_env - prints all of the envment variables to the output
+ * print_env - Prints environment variables
  * @env: all envment variables for the user
- *
- * Return: void
+ * 
+ * Description: Prints all environment variables
+ * Return: 1 if success
  */
 int _print_env(char *av, char **env)
 {

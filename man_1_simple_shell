@@ -1,0 +1,62 @@
+.TH SIMPLE_SHELL "1" "28 Noviembre 19" "Simple Shell Manual Page"
+
+.SH NAME
+.B lsh 
+-a simple holberton shell project
+.PP
+
+.SH SYNOPSIS
+.B ./lsh
+.PP
+
+.SH Description
+This is a simple command language interpreter capable of executing commands read
+from standard input. This shell is also capable of having commands piped in from
+the background.
+
+.SH Overview
+The shell is a program that reads lines from either a file or the terminal,
+interprets them, and  executes other commands. Commands can be typed
+directly to the running shell or can be piped in.
+
+.SH Invocation
+Shell could be run in interactive mode where input is accepted from
+the keyboard. It also works in a non-interactive mode, the shell is run from a script or
+standard input from a echo standard output.
+
+.SH BUILT-IN COMMANDS
+.RS information on built-in commands
+.B  exit
+- Shell process is terminated, and exit from it.
+.PP
+.B  env
+- Print all the environmental variables of this shell.
+
+.SH Command Exit Status
+A command exits with zero for success, any other value indicates failure
+or error.
+
+.SH Pipelines
+This shell does not handle with pipelines |.
+
+.SH Special Parameters
+.IP None
+This shell does not handle with special characters.
+
+.SH ENVIRONMENT
+.IP HOME
+Automatically set from the user's login direcotyr. Default argument for the
+cd builtin.
+.IP PATH
+Default search for executables.
+
+.SH SEE ALSO
+sh(1)
+
+.SH BUGS
+No known bugs.
+
+.SH AUTHORS
+Luz Adriana Ariza <1296@holbertonschool.com>
+.PP
+Campo Pinillos <1207@holbertonschool.com>

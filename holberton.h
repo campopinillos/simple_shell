@@ -11,6 +11,7 @@
 #include <signal.h>
 #include <sys/stat.h>
 #include <fcntl.h>
+ #include <dirent.h>
 
 void _signalc(int sig_num);
 ssize_t _prompt(char **argv, int *flag, char **env);
@@ -22,7 +23,11 @@ int _exitt(char *av);
 int _print_env(char *av, char **env);
 void _path(char **av, char *env, char *av_0, int av_l, int *p_find);
 void *_realloc(void *ptr, int old_size, int new_size);
-int _find_X(int c_path, char *env, char *av_0, int l_av, int start, char **path);
+int _findX(int cpath, char *env, char *av_0, int l_av, int start, char **path);
 void _getav0(int *l_av, char **av, char *av_0);
+void _fill(char **to, char *from);
+void _free(char **s);
+void _print_number(int n);
+void _print_error(char *argv0, int cont, char *av0);
 
 #endif
