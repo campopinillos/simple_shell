@@ -34,7 +34,7 @@ void _path(char **av, char *env, char *av_0, int l_av, int *p_find)
 			_free(path);
 			return;
 		}
-		j = strlen(exev);
+		j = _strlen(exev);
 		free(av[0]);
 		av[0] = malloc(sizeof(char) * (j + 1));
 		j = 0;
