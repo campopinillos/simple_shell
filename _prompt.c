@@ -41,7 +41,7 @@ ssize_t _prompt(char **argv, int *flag, char **env)
 		_print_env(av[0], env);
 		if (access(av[0], X_OK) == 0 && !opendir(av[0]))
 			_execve(av, &num), cont++;
-		else if (av)
+		else if (av && env)
 			av_0 = _Xpath(av, &p_find, env, &cont, &flag_1, &num);
 		if (flag_1 == 0 && p_find)
 		{	_print_error(argv[0], cont, av[0]), cont++;
