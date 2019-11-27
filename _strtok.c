@@ -20,9 +20,9 @@ char **_strtok(char *str)
 	p = malloc(sizeof(char *) * (cont + 1));
 	if (p == NULL)
 		return (NULL);
-	for (i = 0; str[i] != '\0' && cp < cont; i++)
+	for (i = 0; str[i] != '\0' && str[i] != '#' && cp < cont; i++)
 	{
-		for (; str[i] != ' ' && str[i] != '\0' && str[i] != 9; i++)
+		for (; str[i] != ' ' && str[i] != '\0' && str[i] != 9 && str[i]; i++)
 			cl++;
 		if (cl > 0)
 		{
