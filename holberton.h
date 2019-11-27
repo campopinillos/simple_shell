@@ -30,6 +30,7 @@ void _free(char **s);
 void _print_number(int n);
 void _print_error(char *argv0, int cont, char *av0);
 int _ifdir(char **argv, char **av, int *cont);
-char *_Xpath(char **av, int * p_find, char **env, int *cont, int *flag_1, int *num);
-	
+char *_Xpath(char **av, int *p_find, char **env, int *cont,
+	     int *flag_1, int *num);
+
 #endif

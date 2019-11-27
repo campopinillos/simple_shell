@@ -16,7 +16,10 @@ int _exitt(char *av, int num)
 	if (i == 4)
 	{
 		free(av);
-		exit(num);
+		if (num == 512)
+			exit(2);
+		else
+			exit(num);
 	}
 	return (1);
 }
