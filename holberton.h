@@ -18,8 +18,8 @@ ssize_t _prompt(char **argv, int *flag, char **env);
 char **_strtok(char *str);
 int _strlen(char *s);
 void fill(char *str, char *p);
-int _execve(char **av);
-int _exitt(char *av);
+int _execve(char **av, int *num);
+int _exitt(char *av, int num);
 int _print_env(char *av, char **env);
 void _path(char **av, char *env, char *av_0, int av_l, int *p_find);
 void *_realloc(void *ptr, int old_size, int new_size);
@@ -30,6 +30,6 @@ void _free(char **s);
 void _print_number(int n);
 void _print_error(char *argv0, int cont, char *av0);
 int _ifdir(char **argv, char **av, int *cont);
-char *_Xpath(char **av, int * p_find, char **env, int *cont, int *flag_1);
+char *_Xpath(char **av, int * p_find, char **env, int *cont, int *flag_1, int *num);
 	
 #endif

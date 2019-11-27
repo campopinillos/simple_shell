@@ -10,7 +10,7 @@
  */
 
 ssize_t _prompt(char **argv, int *flag, char **env)
-{	int cont = 1, flag_1 = 0, p_find = 0;
+{	int cont = 1, flag_1 = 0, p_find = 0, x = 0, num = 0;
 	char *buffer, **av, *av_0;
 	size_t s_buffer = 1;
 	ssize_t lenght;
@@ -25,14 +25,14 @@ ssize_t _prompt(char **argv, int *flag, char **env)
 		if (lenght == EOF)
 		{	free(buffer);
 			return (-1); }
-		_exitt(buffer);
+		_exitt(buffer, num);
 		av = _strtok(buffer);
 		if (av)
-		{
-			if (_ifdir(argv, av, &cont) == 1)
+		{	x = _ifdir(argv, av, &cont);
+			if (x == 1)
 				continue;
-			else if (_ifdir(argv, av, &cont) == -1)
-				free(buffer), _free(av), exit(127); }
+			else if (x == -1)
+			{	free(buffer), _free(av), exit(127); } }
 		if (!av)
 		{
 			if (isatty(STDIN_FILENO))
@@ -40,9 +40,9 @@ ssize_t _prompt(char **argv, int *flag, char **env)
 			continue; }
 		_print_env(av[0], env);
 		if (access(av[0], X_OK) == 0 && !opendir(av[0]))
-			_execve(av), cont++;
+			_execve(av, &num), cont++;
 		else if (av)
-			av_0 = _Xpath(av, &p_find, env, &cont, &flag_1);
+			av_0 = _Xpath(av, &p_find, env, &cont, &flag_1, &num);
 		if (flag_1 == 0 && p_find)
 		{	_print_error(argv[0], cont, av[0]), cont++;
 			if (isatty(STDIN_FILENO))

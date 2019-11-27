@@ -15,7 +15,11 @@ int _ifdir(char **argv, char **av, int *cont)
 	{
 		_print_error(argv[0], *cont, av[0]), *cont++, _free(av);
 		if (isatty(STDIN_FILENO))
+		{
 			write(STDOUT_FILENO, "$ ", 2);
+			closedir(d);
+			return (1);
+		}
 		else
 		{
 			closedir(d);
