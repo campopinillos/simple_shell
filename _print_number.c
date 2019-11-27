@@ -14,5 +14,5 @@ void _print_number(int n)
 	if (num / 10 != 0)
 		_print_number(num / 10);
 	c = ((num % 10) + '0');
-	write(STDOUT_FILENO, &c, 1);
+	write(STDERR_FILENO, &c, 1);
 }

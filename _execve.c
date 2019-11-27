@@ -2,14 +2,13 @@
 /**
  * _execve - Call execve
  * @av: Double char pointer
- *
+ * @num: num
  * Description: Call execve
  * Return: 1 if succes and -1 if fails
  */
-int _execve(char **av)
+int _execve(char **av, int *num)
 {
 	pid_t child_pid = 0;
-	int num;
 
 	child_pid = fork();
 	if (child_pid == -1)
@@ -23,7 +22,7 @@ int _execve(char **av)
 	}
 	else
 	{
-		wait(&num);
+		wait(num);
 		if (isatty(STDIN_FILENO))
 			write(STDOUT_FILENO, "$ ", 2);
 	}

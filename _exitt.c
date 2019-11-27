@@ -2,11 +2,11 @@
 /**
  * _exitt - Handle exit command
  * @av: string
- *
+ * @num: num
  * Description: Handle exit command
  * Return: Integer
  */
-int _exitt(char *av)
+int _exitt(char *av, int num)
 {
 	char *s = "exit";
 	int i = 0;
@@ -16,7 +16,7 @@ int _exitt(char *av)
 	if (i == 4)
 	{
 		free(av);
-		exit(0);
+		exit(num);
 	}
 	return (1);
 }

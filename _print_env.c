@@ -16,6 +16,7 @@ int _print_env(char *av, char **env)
 		;
 	if (i == 3)
 	{
+		i = 0;
 		while (env[i])
 		{
 			length = _strlen(env[i]);

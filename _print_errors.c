@@ -13,11 +13,11 @@ void _print_error(char *argv0, int cont, char *av0)
 	int length;
 
 	length = _strlen(argv0);
-	write(STDOUT_FILENO, argv0, length);
-	write(STDOUT_FILENO, ": ", 2);
+	write(STDERR_FILENO, argv0, length);
+	write(STDERR_FILENO, ": ", 2);
 	_print_number(cont);
-	write(STDOUT_FILENO, ": ", 2);
+	write(STDERR_FILENO, ": ", 2);
 	length = _strlen(av0);
-	write(STDOUT_FILENO, av0, length);
-	write(STDOUT_FILENO, ": not found\n", 12);
+	write(STDERR_FILENO, av0, length);
+	write(STDERR_FILENO, ": not found\n", 12);
 }
