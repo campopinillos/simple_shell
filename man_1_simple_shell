@@ -2,7 +2,7 @@
 
 .SH NAME
 .B lsh 
--a simple holberton shell project
+-Simple shell implementation of command line - Holberton Project
 .PP
 
 .SH SYNOPSIS
@@ -11,31 +11,43 @@
 
 .SH Description
 This is a simple command language interpreter capable of executing commands read
-from standard input. This shell is also capable of having commands piped in from
-the background.
+from standard input. This shell is also capable of having commands piped in from the background.
 
 .SH Overview
-The shell is a program that reads lines from either a file or the terminal,
-interprets them, and  executes other commands. Commands can be typed
-directly to the running shell or can be piped in.
+The shell is a program that reads lines from either a file or the terminal, interprets them, and  executes other commands. Commands can be typed directly to the running shell or can be piped in.
 
 .SH Invocation
-Shell could be run in interactive mode where input is accepted from
-the keyboard. It also works in a non-interactive mode, the shell is run from a script or
+Shell could be run in interactive mode where input is accepted from the keyboard. It also works in a non-interactive mode, the shell is run from a script or
 standard input from a echo standard output.
+
+To run the shell you should compile all the .c files in the repo with GNU Comiler Collectio and execute the output file, as follow:
+.P
+.RS
+.B $ gcc -Wall -Werror -Wextra -pedantic *.c -o hsh
+.P
+.RE
+Where hsh would be the file to execute:
+.RS
+.B $ ./hsh
+.P
+.RE
+Simple Shell would be run in interactive mode by executing the hsh. Once you execute it, a prompt ($ ) will appear waiting for you to type a command followed by an enter. Once you press enter the shell will execute the command and a new prompt ('$') will appear again expecting a new command. Until you type exit or ctrl D.  
+
+The non-interactive mode uses shell scripts. This includes the use of piping ('|'). Example:
+.P
+.RS
+.B echo 'ls -la' | ./hsh
 
 .SH BUILT-IN COMMANDS
 .RS information on built-in commands
 .B  exit
-- Shell process is terminated, and exit from it.
+- Shell process is terminated, and exit from it with zero for success, any other value indicating a failure on the last executed process.
 .PP
 .B  env
-- Print all the environmental variables of this shell.
-
-.SH Command Exit Status
-A command exits with zero for success, any other value indicates failure
-or error.
-
+- Prints all the environmental variables of Simple shell.
+.P
+.B #
+- Ignores or takes as comments all the commands or things typed after the '#' character. 
 .SH Pipelines
 This shell does not handle with pipelines |.
 
@@ -50,11 +62,12 @@ cd builtin.
 .IP PATH
 Default search for executables.
 
+
 .SH SEE ALSO
 sh(1)
 
 .SH BUGS
-No known bugs.
+No known bugs. Please contact any of the authors if a bug appears.
 
 .SH AUTHORS
 Luz Adriana Ariza <1296@holbertonschool.com>
